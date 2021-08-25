@@ -49,7 +49,7 @@
                                     </ul>
                                     <div class="input-group">
                                         <span class="input-group-addon" id="fullname"><i class="icon-account_circle"></i></span>
-                                        <input type="text" class="form-control   @error('name') is-invalid @enderror" placeholder="Fullname" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        <input type="text" class="form-control   @error('name') is-invalid @enderror" placeholder="Fullname" name="name"  required autocomplete="name" autofocus>
 <br>
                                 @error('name')
                                 <p class="invalid-feedback" role="alert">
@@ -60,7 +60,7 @@
                                     <br>
                                     <div class="input-group">
                                         <span class="input-group-addon" id="email"><i class="icon-account_circle"></i></span>
-                                        <input type="email"  name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email ID" class="form-control">
+                                        <input type="email"  name="email"  required autocomplete="email" placeholder="Email ID" class="form-control">
 
                                         @error('email')
                                         <p class="invalid-feedback" role="alert">
@@ -72,7 +72,7 @@
                                     {{-- Age --}}
                                     <div class="input-group">
                                         <span class="input-group-addon" id="age"><i class="icon-account_circle"></i></span>
-                                        <input type="text" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" required autocomplete="age" placeholder="Enter your age"><br>
+                                        <input type="text" class="form-control @error('age') is-invalid @enderror" name="age" required autocomplete="age" placeholder="Enter your age"><br>
 
                                         @error('age')
                                         <p class="invalid-feedback" role="alert">
@@ -104,7 +104,7 @@
                                     {{--  Custom  --}}
                                     <div class="input-group">
                                         <span class="input-group-addon" id="age"><i class="icon-account_circle"></i></span>
-                                        <input type="text" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" required autocomplete="gender" placeholder="Type Male or Female"><br>
+                                        <input type="text" class="form-control @error('gender') is-invalid @enderror" name="gender" required autocomplete="gender" placeholder="Type Male or Female"><br>
 
                                         @error('gender')
                                         <p class="invalid-feedback" role="alert">

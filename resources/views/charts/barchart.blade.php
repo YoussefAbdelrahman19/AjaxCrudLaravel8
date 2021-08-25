@@ -1,9 +1,10 @@
-<html>
-<head>
-    <title>Age Bar Chart of Users</title>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-</head>
-<body>
+
+@extends('layouts.main')
+
+    @section('content')
+
+    <div class="container">
+        <div class="row ">
     <h2 style="margin:50px 0px 0px 0px;text-align: center;">Age Bar Chart of Users</h2>
     <div id="linechart" style="width: 900px; height: 500px; margin-left: 235px"></div>
     <script type="text/javascript">
@@ -42,5 +43,7 @@
             chart.draw(data, options);
         }
     </script>
-</body>
-</html>
+</div>
+
+</div>
+@endsection

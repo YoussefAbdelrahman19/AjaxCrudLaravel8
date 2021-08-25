@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html>
- <head>
-  <title>Percentage of Male and Female User</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+@extends('layouts.main')
+
+@section('content')
+
+<div class="container">
+    <div class="row ">
+    <div class=" mx-auto " style="width:80%;padding:20px">
   <style type="text/css">
    .box{
     width:800px;
@@ -32,19 +32,17 @@
  <body>
   <br />
   <div class="container">
-   <h3 align="center">Users Gender</h3><br />
 
    <div class="panel panel-default">
     <div class="panel-heading">
-     <h3 class="panel-title">Percentage of Male and Female User</h3>
+     <h3 class="panel-title text-primary my-3">Percentage of Male and Female User</h3>
     </div>
     <div class="panel-body" align="center">
-     <div id="pie_chart" style="width:750px; height:450px;">
+     <div id="pie_chart" style="width:900px; height:450px;" class="mx-auto">
 
      </div>
     </div>
    </div>
 
   </div>
- </body>
-</html>
+  @endsection

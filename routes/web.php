@@ -18,7 +18,7 @@ use App\Http\Controllers\Backend\BarChartController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Auth::routes();
 
@@ -30,6 +30,7 @@ Route::get('userIndex', [UserController::class, 'index']);
 Route::get('barchart', [BarChartController::class, 'index'])->name('barchart');
 Route::post('usersDeleteRecord',[UserController::class, 'delete']);
 
+//ajax routes
 Route::get('/users',[UserController::class,'index']);
 Route::get('/user/{id}',[UserController::class,'getUserById']);
 Route::post('/add-users',[UserController::class,'addUser'])->name('addUser');

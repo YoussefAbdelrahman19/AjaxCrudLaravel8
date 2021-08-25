@@ -41,6 +41,14 @@
 {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script> --}}
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
+{{-- pie chart files --}}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+{{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> --}}
+{{-- For barchart --}}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 
 	</head>
@@ -165,11 +173,11 @@
 									<div class="dropdown-menu lg dropdown-menu-right" aria-labelledby="userSettings">
 										<ul class="user-settings-list">
 											<li>
-												<a href="profile.html">
+												<a href="{{route('welcome')}}">
 													<div class="icon">
 														<i class="icon-account_circle"></i>
 													</div>
-													<p>Profile</p>
+													<p>Home</p>
 												</a>
 											</li>
 											<li>
@@ -275,9 +283,9 @@
                                                 <span class="nav-title">Analytics</span>
                                             </a>
                                             <ul aria-expanded="false">
-                                                {{-- <li>
+                                                <li>
                                                     <a  href="{{ route('barchart') }}">Bar Chart</a>
-                                                </li> --}}
+                                                </li>
                                                 <li>
                                                     <a  href="{{ route('piechart') }}">Pie Chart</a>
                                                 </li>

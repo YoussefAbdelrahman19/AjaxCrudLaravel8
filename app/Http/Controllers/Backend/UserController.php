@@ -5,21 +5,27 @@ namespace App\Http\Controllers\Backend;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserStoreRequest;
 
 class UserController extends Controller
 {
 
 
-    //Get and return all user
-    public function index(){
-        $users = User::paginate(5);
+    // all users
+    public function index(Request $request){
+
+        $users = User::paginate(12);
+        if($request->has('search')){
+            $users=User::where('name','LIKE',"%{$request->search}%")->orWhere('gender','LIKE',"%{$request->search}%")->paginate(5);
+        }
         return view('users.index',compact('users'));
     }
 
 
 
     // Get all ajax request and store the record and returns the response
-    public function addUser(Request $request){
+    public function addUser(UserStoreRequest $request){
+        $request->validated();
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -42,6 +48,8 @@ class UserController extends Controller
     // This method Will update the requested ajax update
     public function updateUser(Request $request)
     {
+        // $request->validated();
+
         $user = User::find($request->id);
         $user->name = $request->name;
         $user->email = $request->email;

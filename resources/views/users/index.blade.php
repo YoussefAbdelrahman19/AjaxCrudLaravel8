@@ -4,14 +4,34 @@
 
 <div class="container">
     <div class="row ">
-        <div class="card mx-auto">
+        <div class="mx-auto" style="width:80%;padding:20px">
 
-    <div class="card">
+    <div class="card ">
         <div id="card-header" class=" card-header" style="padding: 0px 15px;">
             <b>Users List</b>
             <span>
-                <a href="#" class=" btn btn-primary" data-bs-toggle="modal" data-bs-target="#userModal"><i class="fas fa-plus-circle"></i> Add</a>
+                <a href="{{route('register')}}" class=" btn btn-primary ml-5" data-bs-toggle="modal" data-bs-target="#userModal"><i class="fas fa-plus-circle"></i> Add New User</a>
+
+
             </span>
+            {{-- Search input --}}
+            <div class="main m-2">
+              <form action="{{'users'}}" method="get">
+
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search with Username or Gender" name="search">
+                  <div class="input-group-append">
+                    <button class="btn btn-secondary" type="submit">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+            </form>
+
+
+              </div>
+              {{-- End of search button --}}
+
         </div>
         <br>
         <div class="card-body">
@@ -22,7 +42,7 @@
                     <th>Email</th>
                     <th>Gender</th>
                     <th>Age</th>
-                    <th>Action</th>
+                    <th class="text-center">Action</th>
                 </tr>
                 @foreach ($users as $user)
                 <tr id="cid{{$user->id}}">
@@ -31,10 +51,13 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->gender }}</td>
                     <td>{{ $user->age }}</td>
-                    <td><a href="javascript:void(0)" onclick="editUser(<?php echo $user->id; ?>)" class="btn btn-primary">Edit</a><a href="javascript:void(0)" onclick="deleteUser(<?php echo $user->id; ?>)" class="btn btn-danger">Delete</a></td>
+                    <td><a href="javascript:void(0)" onclick="editUser(<?php echo $user->id; ?>)" class="btn btn-primary m-2">Edit</a><a href="javascript:void(0)" onclick="deleteUser(<?php echo $user->id; ?>)" class="btn btn-danger m-2">Delete</a></td>
                 </tr>
                 @endforeach
             </table>
+        <div class="text-center">
+            {{$users->links('pagination::bootstrap-4')}}
+        </div>
         </div>
     </div>
     <!-- Button trigger modal -->
@@ -142,7 +165,7 @@
 <script type="text/javascript">
     function editUser(id)
     {
-        // opens edit modal and inserts values
+
         $.get('/user/'+id, function(user){
             $("#id").val(user.id);
             $("#name1").val(user.name);
@@ -152,7 +175,7 @@
             $("#edituserModal").modal('toggle');
         });
     }
-        // updates the user
+        // update the user
         $("#edituserForm").submit(function(e){
             e.preventDefault();
             let id = $("#id").val();
